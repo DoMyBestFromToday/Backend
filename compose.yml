@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  backend:
+    # Dockerfileがあるディレクトリを指定してビルド
+    build: .
+    # ホストの8000番ポートをコンテナの8000番ポートにマッピング
+    ports:
+      - "8000:8000"
+    # .envファイルから読み込んだ値を環境変数としてコンテナに渡す
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    # ソースコードをコンテナにマウントし、ホットリロードを有効にする
+    # ローカルでコードを修正すると、コンテナ内のアプリが自動で再起動する
+    volumes:
+      - ./app:/app/app
