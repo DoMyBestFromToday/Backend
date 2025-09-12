@@ -25,7 +25,7 @@ def create_user_profile(
     structured_llm = llm.with_structured_output(UserProfile)
 
     profile_prompt = ChatPromptTemplate.from_messages([
-        ("system", "あなたは優秀なデータアナリストです。提供されたお酒に関するレビュー履歴から、ユーザーのプロファイルを分析し、指定された構造で出力してください。"),
+        ("system", "あなたは優秀なデータアナリストです。提供されたお酒に関するレビュー履歴から、ユーザーのプロファイルを分析し、指定された構造で出力してください。情報が不足しており分析が困難な項目については、「データ不足のため分析できません」と回答してください。"),
         ("user", "レビュー履歴:\n{history}")
     ])
     
