@@ -40,7 +40,7 @@ def test_get_user_profile_success(mocker):
 
     # --- Assert ---
     assert response.status_code == 200
-    assert response.json() == mock_profile_obj.dict()
+    assert response.json() == mock_profile_obj.model_dump()
 
 def test_get_user_profile_not_found(mocker):
     """/user-profile でプロファイルが作成できなかった場合のテスト (404)"""
