@@ -14,6 +14,7 @@ class UserProfile(BaseModel):
 class RegenerateReviewRequest(BaseModel):
     original_review: str
     product_info: str
+    product_category: str = Field(..., description='お酒のカテゴリ (例: "日本酒", "ウイスキー")')
     user_profile: Optional[UserProfile] = None
 
 class RegenerateReviewResponse(BaseModel):
@@ -28,3 +29,4 @@ class RegenerateReviewResult(BaseModel):
 class UserProfileRequest(BaseModel):
     review_history: List[str]
     product_info_history: List[str]
+    product_category_history: List[str] = Field(..., description='レビュー履歴に対応するお酒のカテゴリのリスト')
