@@ -19,6 +19,10 @@ class RegenerateReviewRequest(BaseModel):
 class RegenerateReviewResponse(BaseModel):
     regenerated_review: str
 
+class RegenerateReviewResult(BaseModel):
+    product_info: str
+    regenerated_review: str
+
 # --- ユーザープロフィール取得API (/user-profile) 用 ---
 
 class UserProfileRequest(BaseModel):

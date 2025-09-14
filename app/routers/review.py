@@ -28,6 +28,12 @@ def get_user_profile(request: UserProfileRequest):
     """
     レビュー履歴を受け取り、ユーザープロファイルを生成して返すエンドポイント。
     """
+
+    print("--- フロントエンドから受信したデータ ---")
+    print(f"レビュー履歴の件数: {len(request.review_history)}")
+    print(f"レビュー履歴の内容: {request.review_history}")
+    print("------------------------------------")
+    
     user_profile = review_service.create_user_profile(
         review_history=request.review_history,
         product_info_history=request.product_info_history
