@@ -18,6 +18,7 @@ def regenerate_review(request: RegenerateReviewRequest):
     regenerated_text = review_service.regenerate_review_text(
         original_review=request.original_review,
         product_info=request.product_info,
+        category=request.category,
         user_profile=request.user_profile
     )
     return RegenerateReviewResponse(regenerated_review=regenerated_text)
