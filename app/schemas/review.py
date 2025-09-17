@@ -8,6 +8,7 @@ class Taste1Enum(str, Enum):
     sweet = "甘口"
     dry = "辛口"
     bitter = "苦み"
+    unknown = "分析不可能"
 
 class UserProfile(BaseModel):
     taste1: Taste1Enum = Field(..., description='ユーザーの味の好み（甘口、辛口、苦みから一つ）')
